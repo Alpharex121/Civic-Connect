@@ -17,6 +17,11 @@ router.post("/", async (req, res) => {
     const inputPassword = req.body.password;
 
     const userCred = await addUser.findOne({ email: inputEmail });
+    if (userCred === null || userCred === undefined) {
+      res.status(401).send({ data: "Invalid Credentials" });
+      return;
+    }
+    console.log(userCred);
     const passMatch = await bcrypt.compare(inputPassword, userCred.password);
 
     if (passMatch) {
@@ -34,6 +39,7 @@ router.post("/", async (req, res) => {
       return;
     }
   } catch (error) {
+    console.log(error);
     res.status(500).send("Error occured while authenticating.");
     return;
   }

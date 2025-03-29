@@ -9,17 +9,19 @@ const img = require("../constants/constants");
 //NEW USER STUDENTS
 
 router.get("/issues", auth, async (req, res) => {
-  try {
-    if (req.role === "corporation") {
-      const data = await issueRegister.find();
-      res.status(200).send(data);
-      return;
-    } else {
-      res.status(401).send({ data: "User not authenticated." });
-    }
-  } catch (error) {
-    res.status(500).send({ data: "Error occured while fetching issues" });
-  }
+  // try {
+  //   if (req.role === "corporation") {
+  //     const data = await issueRegister.find();
+  //     res.status(200).send(data);
+  //     return;
+  //   } else {
+  //     res.status(401).send({ data: "User not authenticated." });
+  //   }
+  // } catch (error) {
+  //   res.status(500).send({ data: "Error occured while fetching issues" });
+  // }
+  const data = await issueRegister.find();
+  res.status(200).send(data);
 });
 
 router.post("/addissue", auth, async (req, res) => {

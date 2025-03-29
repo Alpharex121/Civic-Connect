@@ -34,9 +34,8 @@ router.post("/adduser", async (req, res) => {
       }
 
       const registered = await newUser.save();
-      const result = await userRegister.find().sort({ $natural: -1 });
       console.log("user registered successful" + registered);
-      res.status(200).send(result);
+      res.status(200).send(registered);
       return;
     } else {
       res.status(400).send({ data: "Password does not match" });

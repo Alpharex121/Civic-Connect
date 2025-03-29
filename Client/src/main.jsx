@@ -14,14 +14,34 @@ import {
 import "./index.css";
 import ReactDOM from "react-dom/client";
 import Homepage from "./components/Homepage/Homepage.jsx";
+import SignUp from "./components/Auth/SignUp.jsx";
+import SignIn from "./components/Auth/SignIn.jsx";
+import UserDashboard from "./components/UserDashboard.jsx";
+import CorporationPanel from "./components/CorporationPanel/CorporationPanel.jsx";
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
       {
-        index: true,
+        path: "/",
         element: <Homepage />,
+      },
+      {
+        path:"/signup",
+        element:<SignUp/>,
+      },
+      {
+        path:"/signin",
+        element:<SignIn/>,
+      },
+      {
+        path:"/user",
+        element:<UserDashboard/>,
+      },
+      {
+        path:"/corporation",
+        element:<CorporationPanel/>,
       },
     ],
   },

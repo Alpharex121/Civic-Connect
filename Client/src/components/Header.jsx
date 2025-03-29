@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <div className="fixed top-0 w-full flex justify-between bg-gradient-to-r from-[#022B50] to-[#101117] z-10 text-white px-5 h-12 items-center">
+    <div className="fixed top-0 w-full flex justify-between bg-gradient-to-br from-[#022B50] to-[#0A1F35] z-10 text-white px-5 h-12 items-center">
       
       <div className="font-bold text-2xl">
         <Link to="/">

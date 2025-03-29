@@ -4,7 +4,7 @@ import WaterWaves from "./HomepageWave";
 
 const HeroSec = () => {
   return (
-    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#022B50] to-[#0A1F35]">
+    <section className="relative w-full  h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#022B50] to-[#0A1F35]">
       {/* Water Waves Background */}
       <WaterWaves />
       

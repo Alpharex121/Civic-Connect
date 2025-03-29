@@ -3,14 +3,14 @@ import { motion } from "framer-motion";
 
 const HowWeWork = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-purple-900 text-white py-16 px-4">
+    <div className="min-h-screen bg-[#c2ccd4] text-[#022B50] py-16 px-4">
       <div className="max-w-5xl mx-auto text-center">
         {/* Title */}
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-5xl md:text-7xl font-extrabold mb-10"
+          className="text-5xl md:text-7xl font-extrabold mb-10 text-black"
         >
           How We Work
         </motion.h1>
@@ -53,9 +53,9 @@ const HowWeWork = () => {
               key={index}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              className="bg-black bg-opacity-10 p-6 rounded-xl shadow-lg backdrop-blur-sm"
+              className="bg-[#022B50] bg-opacity-90 p-6 rounded-xl shadow-lg backdrop-blur-sm text-gray-200"
             >
-              <h2 className="text-xl md:text-2xl font-bold mb-2">{item.step}</h2>
+              <h2 className="text-xl md:text-2xl font-bold mb-2 text-[#F5F5F5]">{item.step}</h2>
               <p className="text-base md:text-lg">{item.description}</p>
             </motion.div>
           ))}

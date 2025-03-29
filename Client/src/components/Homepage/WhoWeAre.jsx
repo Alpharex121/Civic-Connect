@@ -1,88 +1,66 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 const WhoWeAre = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-purple-900 text-white py-16 px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Page Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-4xl md:text-6xl font-bold mb-8 text-center"
-        >
-          Who We Are
-        </motion.h1>
-        
-        {/* Overview Paragraph */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="text-lg md:text-xl mb-8 text-center"
-        >
-          CivicConnect is an innovative application designed to streamline the reporting of municipal issues such as cleanliness, waste management, and other civic concerns. Our platform harnesses the power of AI to enable users to report issues anonymously and efficiently. Every report is accurately classified and directed to the appropriate municipal department while community engagement is enhanced through upvoting and rewards.
-        </motion.p>
-        
+    <div className="min-h-screen bg-[#c2ccd4] text-black py-20 px-6 overflow-hidden">
+      <div className="max-w-6xl mx-auto relative">
+        {/* Decorative Background Element */}
+        <div className="absolute -top-20 -left-20 w-64 h-64 bg-[#022B50] opacity-10 rounded-full blur-3xl" />
+
+        {/* Title */}
+        <h1 className="text-5xl md:text-6xl font-extrabold mb-12 text-center text-black">
+          We’re CivicConnect
+        </h1>
+
+        {/* Overview Section */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <p className="text-xl md:text-2xl leading-relaxed">
+            We’re here to make cities work better. With AI and a passion for community, we turn your reports into action—fast and anonymously.
+          </p>
+        </div>
+
         {/* Key Features Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            className="bg-black bg-opacity-10 p-6 rounded-lg shadow-md"
-          >
-            <h2 className="text-2xl  font-semibold mb-2">AI-Driven Classification</h2>
-            <p>
-              Our advanced AI algorithms automatically categorize and direct reports to the relevant municipal authorities, ensuring prompt responses.
-            </p>
-          </motion.div>
-          
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            className="bg-black bg-opacity-10 p-6 rounded-lg shadow-md"
-          >
-            <h2 className="text-2xl font-semibold mb-2">Anonymous Reporting</h2>
-            <p>
-              Report civic issues securely without exposing your personal information, thanks to our blockchain-based token system.
-            </p>
-          </motion.div>
-          
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            className="bg-black bg-opacity-10 p-6 rounded-lg shadow-md"
-          >
-            <h2 className="text-2xl font-semibold mb-2">Community Upvoting</h2>
-            <p>
-              Enable residents to upvote issues, ensuring that the most impactful concerns receive priority attention.
-            </p>
-          </motion.div>
-          
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            className="bg-black bg-opacity-10 p-6 rounded-lg shadow-md"
-          >
-            <h2 className="text-2xl font-semibold mb-2">Rewards System</h2>
-            <p>
-              Incentivize reporting with rewards for those whose reports lead to real change or receive high community engagement.
-            </p>
-          </motion.div>
+          {[
+            {
+              title: "Smart AI",
+              description: "Our tech sorts and sends reports to the right people instantly.",
+            },
+            {
+              title: "Total Privacy",
+              description: "Blockchain keeps you anonymous, no questions asked.",
+            },
+            {
+              title: "Community Voice",
+              description: "Upvote what matters most to your neighborhood.",
+            },
+            {
+              title: "Rewards That Matter",
+              description: "Get props for sparking real change.",
+            },
+          ].map((feature, index) => (
+            <div
+              key={index}
+              className={`bg-[#022B50] p-6 rounded-xl shadow-md border-l-4 border-[#c2ccd4]`}
+            >
+              <h2 className="text-2xl font-semibold mb-3 text-gray-300">{feature.title}</h2>
+              <p className="text-gray-100">{feature.description}</p>
+            </div>
+          ))}
         </div>
-        
+
         {/* Closing Statement */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="mt-12 text-center"
-        >
-          <p className="text-lg md:text-xl">
-            Join us in revolutionizing civic engagement. Together, we can build smarter, more responsive cities.
+        <div className="mt-20 text-center">
+          <p className="text-xl md:text-2xl text-black mb-6 max-w-3xl mx-auto">
+            We’re building a tool for you—one that listens and delivers.
           </p>
-        </motion.div>
+          <button className="px-8 py-4 bg-[#022B50] text-white rounded-full font-semibold text-lg shadow-lg hover:bg-[#c2ccd4] transition-colors duration-300">
+            Start Reporting
+          </button>
+        </div>
+
+        {/* Decorative Bottom Element */}
+        <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-[#022B50] opacity-10 rounded-full blur-3xl" />
       </div>
     </div>
   );

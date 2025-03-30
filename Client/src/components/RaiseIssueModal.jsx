@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { api } from "../utils/constants";
 import { addUser } from "../store/Slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import issueSlice, { addIssue } from "../store/Slices/issueSlice";
+import issueSlice, { addIssue, updateIssue } from "../store/Slices/issueSlice";
 
 const RaiseIssueModal = () => {
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ const RaiseIssueModal = () => {
       console.log(jsonData);
       if (response.status === 200 && response.data.title) {
         console.log("Issue reported Successfully");
-        dispatch(addIssue(response.data));
+        dispatch(updateIssue(response.data));
         setIsOpen(false); // Close modal after submission
       } else {
         console.log("Issue not reported");

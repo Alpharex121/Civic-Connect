@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { api } from "../../utils/constants";
 import { addUser } from "../../store/Slices/userSlice";
 import { useDispatch } from "react-redux";
+import { clearIssue } from "../../store/Slices/issueSlice";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const SignIn = () => {
       if (response.status === 200 && response.data.name) {
         console.log("User Logged In Successfully");
         dispatch(addUser(jsonData));
+        dispatch(clearIssue());
         navigate("/user");
       }
     } catch (error) {

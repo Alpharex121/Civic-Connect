@@ -45,19 +45,19 @@
         "id": 1,
         "name": "Road Issues",
         "description": "Report potholes, cracks, or road blockages.",
-        "icon": "https://via.placeholder.com/64?text=Road"
+        "icon": "https://cdn-icons-png.flaticon.com/128/3393/3393428.png"
       },
       {
         "id": 2,
         "name": "Waste Management",
         "description": "Report garbage overflow or illegal dumping.",
-        "icon": "https://via.placeholder.com/64?text=Waste"
+        "icon": "https://cdn-icons-png.flaticon.com/128/2750/2750988.png"
       },
       {
         "id": 3,
         "name": "Public Utilities",
         "description": "Report issues with streetlights or water supply.",
-        "icon": "https://via.placeholder.com/64?text=Utilities"
+        "icon": "https://cdn-icons-png.flaticon.com/128/17622/17622063.png"
       }
     ]
   }

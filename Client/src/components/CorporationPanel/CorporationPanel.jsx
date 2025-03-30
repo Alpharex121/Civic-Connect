@@ -74,7 +74,7 @@ const IssueList = ({ issues }) => {
               </td>
 
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                {new Date(issue.date).toLocaleDateString()}
+                30-03-25
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
                 <IssueDetailsModal issue={issue} />

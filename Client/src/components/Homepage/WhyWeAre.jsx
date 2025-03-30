@@ -1,71 +1,63 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 const WhyWeAre = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-purple-900 text-white py-16 px-4">
-      <div className="max-w-5xl mx-auto">
-        {/* Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-5xl md:text-7xl font-extrabold text-center mb-10"
-        >
-          Why CivicConnect?
-        </motion.h1>
+    <div className="min-h-screen bg-gradient-to-b from-[#022B50] to-[#101117] text-[#c2ccd4] py-20 px-6 overflow-hidden">
+      <div className="max-w-6xl mx-auto relative">
+        {/* Decorative Background Element */}
+        <div className="absolute -top-20 -left-20 w-64 h-64 bg-[#1E3A8A] opacity-10 rounded-full blur-3xl" />
 
-        {/* Core Reasons as Animated Blocks */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Title */}
+        <h1 className="text-5xl md:text-6xl font-extrabold mb-12 text-center text-white">
+          Why CivicConnect?
+        </h1>
+
+        {/* Core Reasons */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {[
             {
-              title: "🚀 AI-Powered Efficiency",
+              title: "Faster Fixes",
               description:
-                "Traditional reporting systems are slow. Our AI ensures that issues reach the right department instantly.",
+                "No more waiting. AI gets your issue to the right hands, pronto.",
             },
             {
-              title: "🔒 Privacy-First Approach",
-              description:
-                "We respect user anonymity by leveraging blockchain tokens, ensuring safe and secure reporting.",
+              title: "Your Shield",
+              description: "Stay safe and unseen while making a difference.",
             },
             {
-              title: "🤝 Community-Driven",
-              description:
-                "Upvoting and public tracking ensure that the most critical issues get prioritized.",
+              title: "Louder Together",
+              description: "Your vote amplifies what needs fixing most.",
             },
             {
-              title: "🎯 Real Impact",
+              title: "See the Change",
               description:
-                "We don't just collect reports—we drive action. Every resolved issue is a step toward a better city.",
+                "Watch your city improve, one solved problem at a time.",
             },
           ].map((reason, index) => (
-            <motion.div
+            <div
               key={index}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3 }}
-              className="bg-black bg-opacity-10 backdrop-blur-sm p-6 rounded-xl shadow-lg"
+              className={`bg-[#1E40AF] p-8 rounded-xl  border-t-4 ${
+                index % 2 === 0 ? "border-[#4F46E5]" : "border-[#4338CA]"
+              }`}
             >
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">{reason.title}</h2>
-              <p className="text-base md:text-lg">{reason.description}</p>
-            </motion.div>
+              <h2 className="text-2xl font-semibold mb-4 text-[#EAEAEA]">
+                {reason.title}
+              </h2>
+              <p className="text-[#E0E7FF] text-lg">{reason.description}</p>
+            </div>
           ))}
         </div>
 
         {/* Closing Statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="mt-16 text-center"
-        >
-          <p className="text-2xl md:text-3xl font-medium">
-            CivicConnect isn't just an app—it's a movement toward smarter, safer, and more connected cities.
+        <div className="mt-20 text-center">
+          <p className="text-xl md:text-2xl text-[#EAEAEA] mb-6 max-w-3xl mx-auto">
+            Because your city deserves better—and you deserve a say.
           </p>
-          <motion.div
-            whileHover={{ scaleX: 1.1 }}
-            className="mt-4 w-24 h-1 bg-black mx-auto origin-center"
-          />
-        </motion.div>
+          <div className="w-32 h-1 bg-[#4F46E5] mx-auto" />
+        </div>
+
+        {/* Decorative Bottom Element */}
+        <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-[#1E3A8A] opacity-10 rounded-full blur-3xl" />
       </div>
     </div>
   );

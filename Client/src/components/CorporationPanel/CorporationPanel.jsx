@@ -11,11 +11,12 @@ const IssueList = ({ issues }) => {
       <p className="text-gray-500 text-center py-6">No issues reported yet.</p>
     );
   }
+  
 
   return (
     <div className="m-8">
       <table className="min-w-full divide-y divide-gray-200 bg-white rounded-lg shadow-md">
-        <thead className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+        <thead className="bg-gradient-to-br from-[#022B50] to-[#0A1F35] text-white">
           <tr>
             <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider">
               Issue ID
@@ -139,7 +140,7 @@ const CorporationPanel = () => {
             onClick={() => setActiveTab("all")}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
               activeTab === "all"
-                ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md"
+                ? "bg-gradient-to-br from-[#022B50] to-[#0A1F35] text-white shadow-md"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >
@@ -149,7 +150,7 @@ const CorporationPanel = () => {
             onClick={() => setActiveTab("open")}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
               activeTab === "open"
-                ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md"
+                ? "bg-gradient-to-br from-[#022B50] to-[#0A1F35] text-white shadow-md"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >

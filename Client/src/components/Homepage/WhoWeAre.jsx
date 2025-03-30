@@ -4,15 +4,15 @@ const WhoWeAre = () => {
   return (
     <div className="min-h-screen bg-[#c2ccd4] text-black py-20 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto relative">
-        {/* Decorative Background Element */}
+        
         <div className="absolute -top-20 -left-20 w-64 h-64 bg-[#022B50] opacity-10 rounded-full blur-3xl" />
 
-        {/* Title */}
+        
         <h1 className="text-5xl md:text-6xl font-extrabold mb-12 text-center text-black">
           We’re CivicConnect
         </h1>
 
-        {/* Overview Section */}
+        
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-xl md:text-2xl leading-relaxed">
             We’re here to make cities work better. With AI and a passion for
@@ -20,7 +20,7 @@ const WhoWeAre = () => {
           </p>
         </div>
 
-        {/* Key Features Section */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
             {
@@ -54,7 +54,7 @@ const WhoWeAre = () => {
           ))}
         </div>
 
-        {/* Closing Statement */}
+        
         <div className="mt-20 text-center">
           <p className="text-xl md:text-2xl text-black mb-6 max-w-3xl mx-auto">
             We’re building a tool for you—one that listens and delivers.
@@ -64,7 +64,7 @@ const WhoWeAre = () => {
           </button>
         </div>
 
-        {/* Decorative Bottom Element */}
+       
         <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-[#022B50] opacity-10 rounded-full blur-3xl" />
       </div>
     </div>

@@ -5,7 +5,7 @@ const HowWeWork = () => {
   return (
     <div className="min-h-screen bg-[#c2ccd4] text-[#022B50] py-16 px-4">
       <div className="max-w-5xl mx-auto text-center">
-        {/* Title */}
+        
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -15,7 +15,7 @@ const HowWeWork = () => {
           How We Work
         </motion.h1>
 
-        {/* Step-by-Step Process */}
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
           {[
             {

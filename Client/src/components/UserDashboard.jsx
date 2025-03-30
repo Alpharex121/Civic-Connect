@@ -93,8 +93,8 @@ const UserCard = () => {
   let userData;
   if (!user) {
     userData = {
-      name: "John Doe",
-      email: "johndoe@gmail.com",
+      name: "Anmol awasthi",
+      email: "anmolawasthi117@gmail.com",
       joinDate: "March 2025",
     };
   } else {
@@ -171,23 +171,8 @@ const UserCard = () => {
             </svg>
             Settings
           </button>
-          <button className="flex cursor-pointer items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
+          
             <RaiseIssueModal />
-          </button>
         </div>
       </div>
     </div>
@@ -247,7 +232,7 @@ const UserDashboard = () => {
             }`}
           >
             Open (
-            {issues.filter((i) => i.status.toLowerCase() === "open").length})
+            {issues.filter((i) => i.status?.toLowerCase() === "open").length})
           </button>
           <button
             onClick={() => setActiveTab("in-progress")}

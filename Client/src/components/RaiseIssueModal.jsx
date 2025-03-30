@@ -7,6 +7,7 @@ import issueSlice, { addIssue } from "../store/Slices/issueSlice";
 const RaiseIssueModal = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
+  
   let issueList = useSelector((store) => store?.issues?.issues);
   const [formData, setFormData] = useState({
     pincode: "",
@@ -68,7 +69,7 @@ const RaiseIssueModal = () => {
       {/* Raise an Issue Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="inline-flex items-center cursor-pointer border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition duration-150"
+        className="flex cursor-pointer items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
       >
         Raise Issue
       </button>

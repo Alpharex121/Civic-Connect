@@ -9,7 +9,7 @@ const app = express();
 
 const allowedOrigins = [
   "https://airosphere.vercel.app",
-  "http://localhost:5174",
+  "http://localhost:5173",
 ];
 
 const corsOptionss = {

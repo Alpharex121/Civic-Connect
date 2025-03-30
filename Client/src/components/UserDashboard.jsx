@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import dummyData from "../data/issues.json"; // Adjust path based on your project structure
 import RaiseIssueModal from "./RaiseIssueModal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { api } from "../utils/constants";
+import { addIssue } from "../store/Slices/issueSlice";
 
 // Sub-component for displaying the list of reported issues
 const IssueList = ({ issues }) => {
-  if (issues.length === 0) {
+  if (issues?.length === 0) {
     return (
       <p className="text-gray-500 text-center">
         You haven’t reported any issues yet. Click "Raise an Issue" to get
@@ -22,10 +24,10 @@ const IssueList = ({ issues }) => {
             Issue Type
           </th>
           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Status
+            Category
           </th>
           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Category
+            Status
           </th>
           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
             Date Reported
@@ -37,31 +39,31 @@ const IssueList = ({ issues }) => {
         </tr>
       </thead>
       <tbody className="bg-white divide-y divide-gray-200">
-        {issues.map((issue) => (
+        {issues?.map((issue) => (
           <tr
-            key={issue.id}
+            key={issue?.id}
             className="hover:bg-gray-50 transition duration-200"
           >
-            <td className="px-6 py-4 whitespace-nowrap">{issue.title}</td>
-            <td className="px-6 py-4 whitespace-nowrap">{issue.category}</td>
+            <td className="px-6 py-4 whitespace-nowrap">{issue?.title}</td>
+            <td className="px-6 py-4 whitespace-nowrap">{issue?.category}</td>
             <td className="px-6 py-4 whitespace-nowrap">
               <span
                 className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                  issue.status === "Open"
+                  issue?.status === "Open"
                     ? "bg-yellow-100 text-yellow-800"
-                    : issue.status === "In Progress"
+                    : issue?.status === "In Progress"
                     ? "bg-blue-100 text-blue-800"
                     : "bg-green-100 text-green-800"
                 }`}
               >
-                {issue.status}
+                {issue?.status}
               </span>
             </td>
             <td className="px-6 py-4 whitespace-nowrap">{"30-03-2025"}</td>
 
             <td className="px-6 py-4 whitespace-nowrap">
               <Link
-                to={`/issue/${issue.issueId}`}
+                to={`/issue/${issue?.issueId}`}
                 className="text-indigo-600 hover:text-indigo-900 transition duration-150"
               >
                 View Details
@@ -181,20 +183,34 @@ const UserCard = () => {
 
 // Main UserDashboard component
 const UserDashboard = () => {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state?.user?.user);
   const issuesList = useSelector((state) => state?.issues?.issues);
-  const issues = issuesList; // Dummy issues data
+  let issues = issuesList; // Dummy issues data
   const [categories] = useState(dummyData.categories); // Dummy categories data
   const [activeTab, setActiveTab] = useState("all"); // State for filtering issues by status
 
   // Filter issues based on the active tab
-  useEffect(() => {}, [issuesList]);
-  console.log(issuesList);
+
+  const getIssueList = async () => {
+    try {
+      const response = await api(
+        "http://localhost:3000/issue/issues/" + user?.username
+      );
+      dispatch(addIssue(response.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    console.log(issuesList);
+    issuesList?.length === 0 && user?.name && getIssueList();
+  }, [user, issuesList]);
 
   const filteredIssues =
     activeTab === "all"
       ? issues
-      : issues.filter((issue) => issue.status.toLowerCase() === activeTab);
+      : issues?.filter((issue) => issue?.status?.toLowerCase() === activeTab);
 
   return (
     <div className=" m-8 px-4 py-8 animate-fade-in">
@@ -203,8 +219,8 @@ const UserDashboard = () => {
 
       {/* Welcome Message */}
       <h1 className="text-3xl font-bold text-gray-900 ml-7 mt-6">
-        Welcome back, {user?.name}. You’ve reported {issues.length} issues so
-        far.
+        Welcome back, {user?.name}. You’ve reported {issuesList[0]?.length}{" "}
+        issues so far.
       </h1>
 
       {/* Reported Issues Section */}
@@ -221,7 +237,7 @@ const UserDashboard = () => {
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
             }`}
           >
-            All ({issues.length})
+            All ({issuesList[0]?.length})
           </button>
           <button
             onClick={() => setActiveTab("open")}
@@ -232,7 +248,11 @@ const UserDashboard = () => {
             }`}
           >
             Open (
-            {issues.filter((i) => i.status?.toLowerCase() === "open").length})
+            {
+              issues?.filter((i) => i?.status?.toLowerCase() === "pending")
+                ?.length
+            }
+            )
           </button>
           <button
             onClick={() => setActiveTab("in-progress")}
@@ -244,8 +264,8 @@ const UserDashboard = () => {
           >
             In Progress (
             {
-              issues.filter((i) => i.status.toLowerCase() === "in-progress")
-                .length
+              issues?.filter((i) => i?.status?.toLowerCase() === "in-progress")
+                ?.length
             }
             )
           </button>
@@ -258,12 +278,15 @@ const UserDashboard = () => {
             }`}
           >
             Resolved (
-            {issues.filter((i) => i.status.toLowerCase() === "resolved").length}
+            {
+              issues?.filter((i) => i?.status?.toLowerCase() === "resolved")
+                ?.length
+            }
             )
           </button>
         </div>
         <div className="mt-4 overflow-x-auto">
-          <IssueList issues={filteredIssues} />
+          <IssueList issues={issuesList[0]} />
         </div>
       </section>
 

@@ -23,6 +23,21 @@ router.get("/issues", auth, async (req, res) => {
   const data = await issueRegister.find();
   res.status(200).send(data);
 });
+router.get("/issues/:username", auth, async (req, res) => {
+  try {
+    if (req.user.username === req.params.username) {
+      const data = await issueRegister
+        .find({ username: req.params.username })
+        .sort({ $natural: -1 });
+      res.status(200).send(data);
+      return;
+    } else {
+      res.status(401).send({ data: "User not authenticated." });
+    }
+  } catch (error) {
+    res.status(500).send({ data: "Error occured while fetching issues" });
+  }
+});
 
 router.post("/addissue", auth, async (req, res) => {
   try {
